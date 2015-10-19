@@ -1,0 +1,36 @@
+.reveal section img.no-default {
+    margin: 0px;
+    box-shadow: none;
+    border: none;
+    background: none;
+}
+
+.reveal pre.no-default {
+    font-size: 0.40em;
+}
+
+#logo-vroom, #logo-h5t {
+    position:fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    opacity: 1;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+.no-logos  #logo-h5t, .no-logos  #logo-vroom{
+    opacity: 0;
+}
+
+#logo-h5t {
+    left: 220px;
+}
+
+#flag {
+    position:fixed;
+    top: -20px;
+    left: 0px;
+    z-index: 9998;
+    height: 80px;
+}
