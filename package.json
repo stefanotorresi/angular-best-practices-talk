@@ -1,0 +1,39 @@
+{
+  "name": "angular-talk",
+  "private": true,
+  "version": "0.1.0-dev",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/vroom-agency/angular-talk.git"
+  },
+  "author": "Vroom Agency <code@vroom.agency>",
+  "license": "Proprietary",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^1.2.0",
+    "font-awesome": "^4.3.0",
+    "gulp": "^3.9.0",
+    "gulp-changed": "^1.2.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-dir-sync": "^0.1.2",
+    "gulp-html-prettify": "0.0.1",
+    "gulp-if": "^1.2.5",
+    "gulp-jade": "^1.0.1",
+    "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-sync": "^0.1.4",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.5",
+    "http-server": "^0.8.0",
+    "jquery": "^2.1.4",
+    "yargs": "^3.11.0"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "prebuild": "npm install",
+    "build": "gulp build --prod",
+    "start": "http-server . -a 0.0.0.0 -p 8000 -c-1 & gulp"
+  }
+}

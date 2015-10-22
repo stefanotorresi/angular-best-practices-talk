@@ -1,0 +1,92 @@
+// SCAFFOLDING - NOMENCLATURA
+section
+  h3 1.2 - Convenzioni di Nomenclatura
+  h4 La regola fondamentale è la consistenza!
+  p
+    | Le convezioni sui nomi (sia dei files che dei componenti di AngularJS) consentono di organizzare bene un progetto, rendendo facile la rintracciabilità e la redazione del codice.
+section
+  h3 1.2 - Convenzioni di Nomenclatura
+  h4
+    i.fa.fa-check.fa-green
+    | Nomi dei files
+  p
+    | Lo schema suggerito &egrave:
+    em feature.type.js
+  small
+    em
+      strong Perchè si?
+      br
+      |                                 Seguire uno schema nell'assegnazione dei nomi dei files consente di individuare a colpo d'occhio la funzionalità ed il tipo di codice contenuto in ogni singolo file.
+      br
+      |                                 Uno schema aiuta inoltre a gestire i processi di automazione (concatenamento, minificazione, etc...).
+  pre.no-default(style='width: 50%;').
+    \n
+section
+  h3 1.2 - Convenzioni di Nomenclatura
+  h4
+    i.fa.fa-check.fa-green
+    | Nomi dei files di Test
+  p
+    | Lo schema suggerito &egrave:
+    em feature.type.spec.js
+  small
+    em
+      strong Perchè si?
+      br
+      |                                 Aiuta a fornire uno schema di corrispondenza per Karma (o altri runner).
+  pre.no-default(style='width: 50%;').
+    \n
+section
+  h3 1.2 - Convenzioni di Nomenclatura
+  h4
+    i.fa.fa-check.fa-green
+    | Nomi dei componenti di AngularJS
+  small
+    table
+      thead
+        th Componente
+        th Convenzione
+        th Esempio
+        th Note
+      tbody
+        tr
+          td Controllers
+          td camelCase
+          td
+            code vrBlogsController
+          td
+            | Suffisso
+            em Controller
+        tr
+          td Services/Factories
+          td camelCase
+          td
+            code vrDataService
+          td
+            | Suffisso
+            em Service
+            br
+            |                                             Evitare il prefisso
+            em $
+        tr
+          td Directives
+          td camelCase
+          td
+            code vrCalendarDirective
+          td
+            | Suffisso
+            em Directive
+    p
+      small
+        | N.B. Usa un breve prefisso minuscolo che descriva l'area alla quale la directive appartiene (alcuni esempi sono prefissi relativi all'azienda o al progetto).
+    em
+      strong Perchè si?
+      br
+      |                                 Seguire le convenzioni aiuta ad identificare facilmente e referenziare i componenti,
+      br
+      |                                 oltre che ad evitare eventuali collisioni di nomi.
+  pre.no-default(style='width: 50%;').
+    \n
+  aside.notes
+    | La nomenclatura di Papa cambia per l'uso del prefisso solo per le direttive, oltre che per la forma ed i suffissi.
+// END SCAFFOLDING - NOMENCLATURA
