@@ -26,11 +26,11 @@ gulp.task('jade', function() {
         .pipe(plugins.changed(paths.dist, {extension: '.html'}))
         .pipe(plugins.jade())
         .on('error', handleError)
-        .pipe(plugins.htmlPrettify({
+        /*.pipe(plugins.htmlPrettify({
             indent_char: ' ',
             indent_size: 2,
             unformatted: ['sub', 'sup', 'b', 'i', 'u']
-        }))
+        }))*/
         .pipe(gulp.dest(paths.dist))
     ;
 });

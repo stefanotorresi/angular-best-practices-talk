@@ -28,7 +28,8 @@
     "gulp-util": "^3.0.5",
     "http-server": "^0.8.0",
     "jquery": "^2.1.4",
-    "yargs": "^3.11.0"
+    "yargs": "^3.11.0",
+    "gulp-watch": "~4.3.5"
   },
   "scripts": {
     "prestart": "npm install",

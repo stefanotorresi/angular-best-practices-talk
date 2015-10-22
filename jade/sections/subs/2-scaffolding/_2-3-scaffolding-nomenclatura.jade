@@ -1,43 +1,50 @@
 // SCAFFOLDING - NOMENCLATURA
 section
-  h3 1.2 - Convenzioni di Nomenclatura
+  h3.yellow 1.2 - Convenzioni di Nomenclatura
   h4 La regola fondamentale è la consistenza!
-  p
-    | Le convezioni sui nomi (sia dei files che dei componenti di AngularJS) consentono di organizzare bene un progetto, rendendo facile la rintracciabilità e la redazione del codice.
+  p Le convezioni sui nomi (sia dei files che dei componenti di AngularJS) consentono di organizzare bene un progetto, rendendo facile la rintracciabilità e la redazione del codice.
 section
-  h3 1.2 - Convenzioni di Nomenclatura
+  h3.yellow 1.2 - Convenzioni di Nomenclatura
   h4
     i.fa.fa-check.fa-green
     | Nomi dei files
   p
-    | Lo schema suggerito &egrave:
+    | Lo schema suggerito &egrave:&nbsp;
     em feature.type.js
   small
     em
       strong Perchè si?
       br
-      |                                 Seguire uno schema nell'assegnazione dei nomi dei files consente di individuare a colpo d'occhio la funzionalità ed il tipo di codice contenuto in ogni singolo file.
+      | Seguire uno schema nell'assegnazione dei nomi dei files consente di individuare a colpo d'occhio la funzionalità ed il tipo di codice contenuto in ogni singolo file.
       br
-      |                                 Uno schema aiuta inoltre a gestire i processi di automazione (concatenamento, minificazione, etc...).
-  pre.no-default(style='width: 50%;').
-    \n
+      | Uno schema aiuta inoltre a gestire i processi di automazione (concatenamento, minificazione, etc...).
+  pre.no-default.nohighlight.half-width
+    code.
+      calendar.directive.js
+      shell.controller.js
+      blog.controller.js
+      data.service.js
 section
-  h3 1.2 - Convenzioni di Nomenclatura
+  h3.yellow 1.2 - Convenzioni di Nomenclatura
   h4
     i.fa.fa-check.fa-green
     | Nomi dei files di Test
   p
-    | Lo schema suggerito &egrave:
+    | Lo schema suggerito &egrave:&nbsp;
     em feature.type.spec.js
   small
     em
       strong Perchè si?
       br
-      |                                 Aiuta a fornire uno schema di corrispondenza per Karma (o altri runner).
-  pre.no-default(style='width: 50%;').
-    \n
+      | Aiuta a fornire uno schema di corrispondenza per Karma (o altri runner).
+  pre.no-default.nohighlight.half-width
+    code.
+      calendar.directive.spec.js
+      shell.controller.spec.js
+      blog.controller.spec.js
+      data.service.spec.js
 section
-  h3 1.2 - Convenzioni di Nomenclatura
+  h3.yellow 1.2 - Convenzioni di Nomenclatura
   h4
     i.fa.fa-check.fa-green
     | Nomi dei componenti di AngularJS
@@ -55,7 +62,7 @@ section
           td
             code vrBlogsController
           td
-            | Suffisso
+            | Suffisso &nbsp;
             em Controller
         tr
           td Services/Factories
@@ -63,10 +70,10 @@ section
           td
             code vrDataService
           td
-            | Suffisso
+            | Suffisso &nbsp;
             em Service
             br
-            |                                             Evitare il prefisso
+            | Evitare il prefisso &nbsp;
             em $
         tr
           td Directives
@@ -74,7 +81,7 @@ section
           td
             code vrCalendarDirective
           td
-            | Suffisso
+            | Suffisso &nbsp;
             em Directive
     p
       small
@@ -82,11 +89,16 @@ section
     em
       strong Perchè si?
       br
-      |                                 Seguire le convenzioni aiuta ad identificare facilmente e referenziare i componenti,
+      | Seguire le convenzioni aiuta ad identificare facilmente e referenziare i componenti,
       br
-      |                                 oltre che ad evitare eventuali collisioni di nomi.
-  pre.no-default(style='width: 50%;').
-    \n
+      | oltre che ad evitare eventuali collisioni di nomi.
+  pre.no-default.nohighlight.half-width
+    code.
+      angular
+        .module
+        .controller('vrBlogsController', BlogsController);
+
+        function BlogsController() {}
   aside.notes
     | La nomenclatura di Papa cambia per l'uso del prefisso solo per le direttive, oltre che per la forma ed i suffissi.
 // END SCAFFOLDING - NOMENCLATURA

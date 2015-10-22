@@ -1,235 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>AngularJS Best Practices</title><meta name="description" content="A framework for easily creating beautiful presentations using HTML"><meta name="author" content="Hakim El Hattab"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"><link rel="stylesheet" href="css/reveal.css"><link id="theme" rel="stylesheet" href="css/theme/black.css"><link rel="stylesheet" href="css/custom.css"><!-- Code syntax highlighting--><link rel="stylesheet" href="lib/css/zenburn.css"><link rel="stylesheet" href="lib/font/font-awesome/css/font-awesome.min.css"><!-- Printing and PDF exports--><script>var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--if lt IE 9script(src='lib/js/html5shiv.js')--></head><body><img id="logo-h5t" src="assets/logoH5T.png"><img id="logo-vroom" src="assets/logoVroom.png"><img id="flag" src="assets/flag.svg"><div class="reveal"><!-- Any section element inside of this container is displayed as a slide--><div class="slides"><!--INTRO--><section><img src="assets/angularjs-logo.png" class="no-default"><h1>AngularJS<br>Best Practices</h1><h3>GDG DevFest Mediterranean 2015</h3><p><small>Francesco Sciuti / Stefano Torresi</small></p></section><section><h2>Chi sono questi due?</h2><p>Difficile da dire senza usare brutte parole...<br>beh, siamo amanti e professionisti del web! Penso che basti!</p><aside class="notes">[Qui note di presentazione]</aside></section><section><h2>Perchè Best Practices?</h2><presentazione>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo ultricies convallis. Cras arcu ante, consectetur vel nulla in, tincidunt iaculis ipsum.</presentazione><aside class="notes">[Qui note di presentazione]</aside></section><section><h2>Vantaggi Best Practices</h2><ul><li>No order here</li><li>Or here</li><li>Or here</li><li>Or here</li></ul><aside class="notes">[Qui note di presentazione]</aside></section><!-- SCAFFOLDING--><section><section><h2 class="yellow">1 - Scaffolding</h2><p>Strutturare un'<em>App Angular&nbsp;</em>e scegliere gli strumenti per evitare di impazzire dopo poco tempo!</p><small>Nelle prime fasi di un progetto si trascurano questi aspetti ma nel lungo termine influenzerenno il codice e la manutenibilit&agrave.<br>Tutto ciò che serve è un po 'di accortezza, un po' di disciplina e una banale preferenza per la sanità mentale, piuttosto che la pazzia.</small><aside class="notes">Ci sono molti modi per strutturare un app e noi provvederemo a prendere in prestito alcuni principi da soluzioni consolidate, oltre ad alcune metodologie specifiche per Angular.</aside></section><!-- SCAFFOLDING - STRUTTURA--><section><h3 class="yellow">1.1 - Struttura di un'App</h3><h4>Folders-by-Type vs Folders-by-Feature</h4><p>Usare un approccio Folders-by-Feature piuttosto che il classico approccio Folders-by-Type</p><aside class="notes">[Qui note di presentazione]</aside></section><section><h3 class="yellow">1.1 - Struttura di un'App</h3><h4><i class="fa fa-close fa-red"></i>Folders-by-Type</h4><p>Molti progetti AngularJS mostrano una struttura ispirata da un approccio<em>MVC</em>, organizzando quindi i files con un approccio di<em>Folders-by-Type&nbsp;</em>e cioè suddividendo le cartelle per controllers, viste, direttive, etc..</p><small><em><strong>Perchè no?</strong><br>Al crescere del progetto la struttura risulta dispersiva, e non consente di rintracciare facilmente le risorse del progetto, oltre che scomode da rendere riutilizzabili.</em></small><aside class="notes">[Qui note di presentazione]</aside></section><section><h3 class="yellow">1.1 - Struttura di un'App</h3><h4><i class="fa fa-close fa-red"></i>Folders-by-Type</h4><pre class="no-default nohighlight"><code>app/
+  app.module.js
+  app.config.js
+  app.routes.js
+  directives.js
+  controllers/
+      blog.js
+      shell.js
+      user.js
+      topnav.js
+  directives/
+      calendar.directive.js
+      calendar.directive.html
+      avatar.directive.js
+      avatar.directive.html
+  services/
+      dataservice.js
+      localstorage.js
+  views/
+      blog.html
+      user.html
+      sessions.html
+      shell.html
+      ...</code></pre></section><section><h3 class="yellow">1.1 - Struttura di un'App</h3><h4><i class="fa fa-check fa-green"></i>Folders-by-Feature</h4><p>L'approccio&nbsp;<em>Folders-by-Feature</em> invece organizza i files per&nbsp;<em>funzionalità</em>, rendendo quindi la struttura più modulare.<br>Infatti i files vengono organizzati in cartelle che hanno il nome per la funzionalità che rappresentano.</p><small><em><strong>Perchè si?</strong><br>La struttura risulta quindi modulare!<br>Lo sviluppatore può rintracciare facilmente il codice ed identificare ciò che rappresenta a colpo d'occhio.
+La struttura inoltre è piatta e non c'è ripetitività o nomi ridondanti.</em></small></section><section><h3 class="yellow">1.1 - Struttura di un'App</h3><h4><i class="fa fa-check fa-green"></i>Folders-by-Feature</h4><pre class="no-default nohighlight"><code>app/
+  app.module.js
+  app.config.js
+  app.routes.js
+  components/
+      calendar.directive.js
+      calendar.directive.html
+      avatar.directive.js
+      avatar.directive.html
+  layout/
+      shell.html
+      shell.controller.js
+      ...
+  blog/
+      blog.html
+      blog.controller.js
+  services/
+      data.service.js
+      localstorage.service.js
+  user/
+      user.html
+      user.controller.js</code></pre></section><!-- END SCAFFOLDING - STRUTTURA--><!-- SCAFFOLDING - NOMENCLATURA--><section><h3 class="yellow">1.2 - Convenzioni di Nomenclatura</h3><h4>La regola fondamentale è la consistenza!</h4><p>Le convezioni sui nomi (sia dei files che dei componenti di AngularJS) consentono di organizzare bene un progetto, rendendo facile la rintracciabilità e la redazione del codice.</p></section><section><h3 class="yellow">1.2 - Convenzioni di Nomenclatura</h3><h4><i class="fa fa-check fa-green"></i>Nomi dei files</h4><p>Lo schema suggerito &egrave:&nbsp;<em>feature.type.js</em></p><small><em><strong>Perchè si?</strong><br>Seguire uno schema nell'assegnazione dei nomi dei files consente di individuare a colpo d'occhio la funzionalità ed il tipo di codice contenuto in ogni singolo file.<br>Uno schema aiuta inoltre a gestire i processi di automazione (concatenamento, minificazione, etc...).</em></small><pre class="no-default nohighlight half-width"><code>calendar.directive.js
+shell.controller.js
+blog.controller.js
+data.service.js</code></pre></section><section><h3 class="yellow">1.2 - Convenzioni di Nomenclatura</h3><h4><i class="fa fa-check fa-green"></i>Nomi dei files di Test</h4><p>Lo schema suggerito &egrave:&nbsp;<em>feature.type.spec.js</em></p><small><em><strong>Perchè si?</strong><br>Aiuta a fornire uno schema di corrispondenza per Karma (o altri runner).</em></small><pre class="no-default nohighlight half-width"><code>calendar.directive.spec.js
+shell.controller.spec.js
+blog.controller.spec.js
+data.service.spec.js</code></pre></section><section><h3 class="yellow">1.2 - Convenzioni di Nomenclatura</h3><h4><i class="fa fa-check fa-green"></i>Nomi dei componenti di AngularJS</h4><small><table><thead><th>Componente</th><th>Convenzione</th><th>Esempio</th><th>Note</th></thead><tbody><tr><td>Controllers</td><td>camelCase</td><td><code>vrBlogsController</code></td><td>Suffisso &nbsp;<em>Controller</em></td></tr><tr><td>Services/Factories</td><td>camelCase</td><td><code>vrDataService</code></td><td>Suffisso &nbsp;<em>Service</em><br>Evitare il prefisso &nbsp;<em>$</em></td></tr><tr><td>Directives</td><td>camelCase</td><td><code>vrCalendarDirective</code></td><td>Suffisso &nbsp;<em>Directive</em></td></tr></tbody></table><p><small>N.B. Usa un breve prefisso minuscolo che descriva l'area alla quale la directive appartiene (alcuni esempi sono prefissi relativi all'azienda o al progetto).</small></p><em><strong>Perchè si?</strong><br>Seguire le convenzioni aiuta ad identificare facilmente e referenziare i componenti,<br>oltre che ad evitare eventuali collisioni di nomi.</em></small><pre class="no-default nohighlight half-width"><code>angular
+  .module
+  .controller('vrBlogsController', BlogsController);
 
-<head>
-  <meta charset="utf-8">
-  <title>AngularJS Best Practices</title>
-  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-  <meta name="author" content="Hakim El Hattab">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="css/reveal.css">
-  <link id="theme" rel="stylesheet" href="css/theme/black.css">
-  <link rel="stylesheet" href="css/custom.css">
-  <!-- Code syntax highlighting-->
-  <link rel="stylesheet" href="lib/css/zenburn.css">
-  <link rel="stylesheet" href="lib/font/font-awesome/css/font-awesome.min.css">
-  <!-- Printing and PDF exports-->
-  <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
-  <!--if lt IE 9script(src='lib/js/html5shiv.js')-->
-</head>
-
-<body>
-  <img id="logo-h5t" src="assets/logoH5T.png">
-  <img id="logo-vroom" src="assets/logoVroom.png">
-  <img id="flag" src="assets/flag.svg">
-  <div class="reveal">
-    <!-- Any section element inside of this container is displayed as a slide-->
-    <div class="slides">
-      <!--INTRO-->
-      <section>
-        <img src="assets/angularjs-logo.png" class="no-default">
-        <h1>AngularJSdd
-          <br>Best Practices</h1>
-        <h3>GDG DevFest Mediterranean 2015</h3>
-        <p>
-          <small>Francesco Sciuti / Stefano Torresi</small>
-        </p>
-      </section>
-      <section>
-        <h2>Chi sono questi dsue?</h2>
-        <p>Difficile da dire senza usare brutte parole...
-          <br>beh, professionisti del web! Penso che basti!</p>
-        <aside class="notes">Qui note di presentazione</aside>
-      </section>
-      <section>
-        <h2>Perchè Best Practices?</h2>
-        <presentazione>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo ultricies convallis. Cras arcu ante, consectetur vel nulla in, tincidunt iaculis ipsum.</presentazione>
-      </section>
-      <section>
-        <h2>Vantaggi Best Practices</h2>
-        <ul>
-          <li>No order here</li>
-          <li>Or here</li>
-          <li>Or here</li>
-          <li>Or here</li>
-        </ul>
-      </section>
-      <!-- SCAFFOLDING-->
-      <section>
-        <section>
-          <h2>1 - Scaffolding</h2>
-          <p>Strutturare un'
-            <em>App Angular</em>e scegliere gli strumenti per evitare di impazzire dopo poco tempo!</p>
-          <small>Nelle prime fasi di un progetto si trascurano questi aspetti ma nel lungo termine influenzerenno il codice e la manutenibilit&agrave.
-            <br>Tutto ciò che serve è un po 'di accortezza, un po' di disciplina e una banale preferenza per la sanità mentale, piuttosto che la pazzia.</small>
-          <aside class="notes">Ci sono molti modi per strutturare un app e noi provvederemo a prendere in prestito alcuni principi da soluzioni consolidate, oltre ad alcune metodologie specifiche per Angular.</aside>
-        </section>
-        <!-- SCAFFOLDING - STRUTTURA-->
-        <section>
-          <h3>1.1 - Struttura di un'App</h3>
-          <h4>Folders-by-Type vs Folders-by-Feature</h4>
-          <p>Usare un approccio Folders-by-Feature piuttosto che il classico approccio Folders-by-Type</p>
-        </section>
-        <section>
-          <h3>1.1 - Struttura di un'App</h3>
-          <h4><i class="fa fa-close fa-red"></i>Folders-by-Type</h4>
-          <p>Molti progetti AngularJS mostrano una struttura ispirata da un approccio MVC, organizzando quindi i files con un approccio di
-            <em>Folders-by-Type</em>e cioè suddividendo le cartelle per controllers, viste, direttive, etc..</p>
-          <small>
-            <em>
-              <strong>Perchè no?</strong>
-              <br>Al crescere del progetto la struttura risulta dispersiva, e non consente rintracciare facilmente le risorse del progetto, oltre che scomode da rendere riutilizzabili.</em>
-          </small>
-        </section>
-        <section>
-          <h3>1.1 - Struttura di un'App</h3>
-          <h4><i class="fa fa-close fa-red"></i>Folders-by-Type</h4>
-          <pre class="no-default">\n</pre>
-        </section>
-        <section>
-          <h3>1.1 - Struttura di un'App</h3>
-          <h4><i class="fa fa-check fa-green"></i>Folders-by-Feature</h4>
-          <p>L'approccio
-            <em>Folders-by-Feature</em>invece organizza i files per
-            <em>funzionalità</em>, rendendo quindi la struttura più modulare.
-            <br>Infatti i files vengono organizzati in cartelle che hanno il nome per la funzionalità che rappresentano.</p>
-          <small>
-            <em>
-              <strong>Perchè si?</strong>
-              <br>La struttura risulta quindi modulare! Lo sviluppatore può rintracciare facilmente il codice ed identificare ciò che rappresenta a colpo d'occhio. La struttura inoltre è piatta e non c'è ripetitività o nomi ridondanti.</em>
-          </small>
-        </section>
-        <section>
-          <h3>1.1 - Struttura di un'App</h3>
-          <h4><i class="fa fa-check fa-green"></i>Folders-by-Feature</h4>
-          <pre class="no-default">\n</pre>
-        </section>
-        <!-- END SCAFFOLDING - STRUTTURA-->
-        <!-- SCAFFOLDING - NOMENCLATURA-->
-        <section>
-          <h3>1.2 - Convenzioni di Nomenclatura</h3>
-          <h4>La regola fondamentale è la consistenza!</h4>
-          <p>Le convezioni sui nomi (sia dei files che dei componenti di AngularJS) consentono di organizzare bene un progetto, rendendo facile la rintracciabilità e la redazione del codice.</p>
-        </section>
-        <section>
-          <h3>1.2 - Convenzioni di Nomenclatura</h3>
-          <h4><i class="fa fa-check fa-green"></i>Nomi dei files</h4>
-          <p>Lo schema suggerito &egrave:
-            <em>feature.type.js</em>
-          </p>
-          <small>
-            <em>
-              <strong>Perchè si?</strong>
-              <br>Seguire uno schema nell'assegnazione dei nomi dei files consente di individuare a colpo d'occhio la funzionalità ed il tipo di codice contenuto in ogni singolo file.
-              <br>Uno schema aiuta inoltre a gestire i processi di automazione (concatenamento, minificazione, etc...).</em>
-          </small>
-          <pre style="width: 50%;" class="no-default">\n</pre>
-        </section>
-        <section>
-          <h3>1.2 - Convenzioni di Nomenclatura</h3>
-          <h4><i class="fa fa-check fa-green"></i>Nomi dei files di Test</h4>
-          <p>Lo schema suggerito &egrave:
-            <em>feature.type.spec.js</em>
-          </p>
-          <small>
-            <em>
-              <strong>Perchè si?</strong>
-              <br>Aiuta a fornire uno schema di corrispondenza per Karma (o altri runner).</em>
-          </small>
-          <pre style="width: 50%;" class="no-default">\n</pre>
-        </section>
-        <section>
-          <h3>1.2 - Convenzioni di Nomenclatura</h3>
-          <h4><i class="fa fa-check fa-green"></i>Nomi dei componenti di AngularJS</h4>
-          <small>
-            <table>
-              <thead>
-                <th>Componente</th>
-                <th>Convenzione</th>
-                <th>Esempio</th>
-                <th>Note</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Controllers</td>
-                  <td>camelCase</td>
-                  <td>
-                    <code>vrBlogsController</code>
-                  </td>
-                  <td>Suffisso
-                    <em>Controller</em>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Services/Factories</td>
-                  <td>camelCase</td>
-                  <td>
-                    <code>vrDataService</code>
-                  </td>
-                  <td>Suffisso
-                    <em>Service</em>
-                    <br>Evitare il prefisso
-                    <em>$</em>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Directives</td>
-                  <td>camelCase</td>
-                  <td>
-                    <code>vrCalendarDirective</code>
-                  </td>
-                  <td>Suffisso
-                    <em>Directive</em>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <p>
-              <small>N.B. Usa un breve prefisso minuscolo che descriva l'area alla quale la directive appartiene (alcuni esempi sono prefissi relativi all'azienda o al progetto).</small>
-            </p>
-            <em>
-              <strong>Perchè si?</strong>
-              <br>Seguire le convenzioni aiuta ad identificare facilmente e referenziare i componenti,
-              <br>oltre che ad evitare eventuali collisioni di nomi.</em>
-          </small>
-          <pre style="width: 50%;" class="no-default">\n</pre>
-          <aside class="notes">La nomenclatura di Papa cambia per l'uso del prefisso solo per le direttive, oltre che per la forma ed i suffissi.</aside>
-        </section>
-        <!-- END SCAFFOLDING - NOMENCLATURA-->
-      </section>
-    </div>
-  </div>
-  <script src="lib/js/head.min.js"></script>
-  <script src="js/reveal.js"></script>
-  <script>
-    // Full list of configuration options available at:
-    // https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-    controls: true,
-    progress: true,
-    history: true,
-    center: true,
-    mouseWheel: true,
-    transition: 'slide', // none/fade/slide/convex/concave/zoom
-    // Optional reveal.js plugins
-    dependencies: [
-    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-    { src: 'plugin/zoom-js/zoom.js', async: true },
-    { src: 'plugin/notes/notes.js', async: true }
-    ]
-    });
-  </script>
-</body>
-
-</html>
+  function BlogsController() {}</code></pre><aside class="notes">La nomenclatura di Papa cambia per l'uso del prefisso solo per le direttive, oltre che per la forma ed i suffissi.</aside></section><!-- END SCAFFOLDING - NOMENCLATURA--><!-- SCAFFOLDING - PACKAGE MANAGER--><section><h3 class="yellow">1.3 - Package Manager</h3><h4>npm & Bower</h4><p>Non possiamo fare a meno di un Package Manager!</p><img src="assets/bower-npm-logo.png" class="half-width"><aside class="notes">[Qui note di presentazione]</aside></section><section><h3 class="yellow">1.3 - Package Manager</h3><h4><i class="fa fa-check fa-green"></i>NPM</h4><p>Comunemente usato per la gestione di moduli Node.js, ma funziona bene anche per il front-end.</p><h4><i class="fa fa-check fa-green"></i>Bower</h4><p>Creato esclusivamente per il front-end ed è ottimizzato per questo scopo.</p><small><em><br>La più grande differenza è che&nbsp;<strong>NPM&nbsp;</strong>gestisce le dipendenze annidate mentre&nbsp;<strong>Bower&nbsp;</strong>richiede un albero delle dipendenze piatto.<br>La ragione per cui molti progetti usano entrambi è che usano&nbsp;<strong>Bower&nbsp;</strong>per i pacchetti di front-end e&nbsp;<strong>NPM&nbsp;</strong>per strumenti di sviluppo come&nbsp;<strong>Yeoman, Grunt, Gulp, JSHint, CoffeeScript, etc.</strong></em></small><aside class="notes"><p>Un albero delle dipendenze nidificato significa che le dipendenze possono avere le proprie dipendenze che possono avere il proprio, e così via. Esso consente di preoccuparsi di conflitti di dipendenza come tutte le dipendenze utilizzano ad esempio la propria versione di sottolineatura.</p></aside></section><!-- END SCAFFOLDING - PACKAGE MANAGER--></section></div></div><script src="lib/js/head.min.js"></script><script src="js/reveal.js"></script><script>// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+mouseWheel: true,
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+// Optional reveal.js plugins
+dependencies: [
+{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: 'plugin/zoom-js/zoom.js', async: true },
+{ src: 'plugin/notes/notes.js', async: true }
+]
+});</script></body></html>

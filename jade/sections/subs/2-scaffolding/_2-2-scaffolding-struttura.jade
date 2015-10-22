@@ -1,39 +1,68 @@
 // SCAFFOLDING - STRUTTURA
 section
-  h3 1.1 - Struttura di un'App
+  h3.yellow 1.1 - Struttura di un'App
   h4 Folders-by-Type vs Folders-by-Feature
-  p
-    | Usare un approccio Folders-by-Feature piuttosto che il classico approccio Folders-by-Type
+  p Usare un approccio Folders-by-Feature piuttosto che il classico approccio Folders-by-Type
+  aside.notes
+    | [Qui note di presentazione]
 section
-  h3 1.1 - Struttura di un'App
+  h3.yellow 1.1 - Struttura di un'App
   h4
     i.fa.fa-close.fa-red
     | Folders-by-Type
   p
-    | Molti progetti AngularJS mostrano una struttura ispirata da un approccio MVC, organizzando quindi i files con un approccio di
-    em Folders-by-Type
-    |  e cioè suddividendo le cartelle per controllers, viste, direttive, etc..
+    | Molti progetti AngularJS mostrano una struttura ispirata da un approccio
+    em MVC
+    | , organizzando quindi i files con un approccio di
+    em Folders-by-Type&nbsp;
+    | e cioè suddividendo le cartelle per controllers, viste, direttive, etc..
   small
     em
       strong Perchè no?
       br
-      |                                 Al crescere del progetto la struttura risulta dispersiva, e non consente rintracciare facilmente le risorse del progetto, oltre che scomode da rendere riutilizzabili.
+      | Al crescere del progetto la struttura risulta dispersiva, e non consente di rintracciare facilmente le risorse del progetto, oltre che scomode da rendere riutilizzabili.
+  aside.notes
+    | [Qui note di presentazione]
 section
-  h3 1.1 - Struttura di un'App
+  h3.yellow 1.1 - Struttura di un'App
   h4
     i.fa.fa-close.fa-red
     | Folders-by-Type
-  pre.no-default.
-    \n
+  pre.no-default.nohighlight
+    code.
+      app/
+        app.module.js
+        app.config.js
+        app.routes.js
+        directives.js
+        controllers/
+            blog.js
+            shell.js
+            user.js
+            topnav.js
+        directives/
+            calendar.directive.js
+            calendar.directive.html
+            avatar.directive.js
+            avatar.directive.html
+        services/
+            dataservice.js
+            localstorage.js
+        views/
+            blog.html
+            user.html
+            sessions.html
+            shell.html
+            ...
 section
-  h3 1.1 - Struttura di un'App
+  h3.yellow 1.1 - Struttura di un'App
   h4
     i.fa.fa-check.fa-green
     | Folders-by-Feature
   p
-    | L'approccio
+    | L'approccio&nbsp;
     em Folders-by-Feature
-    |  invece organizza i files per
+    |  invece organizza i files per&nbsp;
     em funzionalità
     | , rendendo quindi la struttura più modulare.
     br
@@ -42,12 +71,37 @@ section
     em
       strong Perchè si?
       br
-      |                                 La struttura risulta quindi modulare! Lo sviluppatore può rintracciare facilmente il codice ed identificare ciò che rappresenta a colpo d'occhio. La struttura inoltre è piatta e non c'è ripetitività o nomi ridondanti.
+      | La struttura risulta quindi modulare!
+      br
+      | Lo sviluppatore può rintracciare facilmente il codice ed identificare ciò che rappresenta a colpo d'occhio.
+      | La struttura inoltre è piatta e non c'è ripetitività o nomi ridondanti.
 section
-  h3 1.1 - Struttura di un'App
+  h3.yellow 1.1 - Struttura di un'App
   h4
     i.fa.fa-check.fa-green
     | Folders-by-Feature
-  pre.no-default.
-    \n
+  pre.no-default.nohighlight
+    code.
+      app/
+        app.module.js
+        app.config.js
+        app.routes.js
+        components/
+            calendar.directive.js
+            calendar.directive.html
+            avatar.directive.js
+            avatar.directive.html
+        layout/
+            shell.html
+            shell.controller.js
+            ...
+        blog/
+            blog.html
+            blog.controller.js
+        services/
+            data.service.js
+            localstorage.service.js
+        user/
+            user.html
+            user.controller.js
 // END SCAFFOLDING - STRUTTURA
