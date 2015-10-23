@@ -98,3 +98,8 @@ li h5 {
     left: 50px;
     position: absolute;
 }
+
+span.section-title {
+    display: block;
+    font-size: .4em;
+}
