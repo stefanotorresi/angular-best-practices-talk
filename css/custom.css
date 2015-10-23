@@ -69,3 +69,8 @@ h4 i.fa {
     border: none;
     box-shadow: none;
 }
+
+li h5 small {
+    text-transform: none;
+    font-weight: normal!important;
+}
