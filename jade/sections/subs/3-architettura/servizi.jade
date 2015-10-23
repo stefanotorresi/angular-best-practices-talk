@@ -1,5 +1,5 @@
 section
-  h3.yellow Servizi
+  +section-title-mini("fa-cogs", "Architettura", "Servizi")
   ul
     li
       h5 Applicare il Single Responsibility Principle (<em>cum grano salis</em>)
@@ -15,7 +15,7 @@ section
     p Dare qualche accenno discorsivo sul <em>SRP</em> perché è difficile esporre degli esempi senza essere prolissi.
 
 section
-  h3.yellow Promise chaining
+  +section-title-mini("fa-cogs", "Architettura", "Promise chaining")
   p
     i.fa.fa-close.fa-red.fa-fw
     | async -> sync
@@ -33,7 +33,7 @@ section
     });
 
 section
-  h3.yellow Promise chaining
+  +section-title-mini("fa-cogs", "Architettura", "Promise chaining")
   p
     i.fa.fa-check.fa-green.fa-fw
     | async -> async
@@ -54,7 +54,7 @@ section
       });
 
 section
-  h3.yellow Dichiarazione servizi
+  +section-title-mini("fa-cogs", "Architettura", "Dichiarazione servizi")
   p Il più semplice: <code>constructor function</code>
   pre: code.javascript.
     var AppBlogService = function($http) { /* etc */ };
@@ -62,7 +62,7 @@ section
     angular.service('appBlogService', AppBlogService);
 
 section
-  h3.yellow Dichiarazione servizi
+  +section-title-mini("fa-cogs", "Architettura", "Dichiarazione servizi")
   p Più flessibile: <code>factory</code>
   pre.small: code.javascript.
     var AppBlogService = function(someDependency) { /* etc */ };
@@ -75,7 +75,7 @@ section
     });
 
 section
-  h3.yellow Dichiarazione servizi
+  +section-title-mini("fa-cogs", "Architettura", "Dichiarazione servizi")
   p Massima configurabilità: <code>provider</code>
   pre.small: code.javascript.
     angular
