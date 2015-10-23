@@ -1,45 +1,49 @@
 // SCAFFOLDING - STRUTTURA
 section
-  h3.yellow 1.1 - Struttura di un'App
+  h3.yellow Scaffolding - Struttura di un'App
   h4 Folders-by-Type vs Folders-by-Feature
-  p Usare un approccio Folders-by-Feature piuttosto che il classico approccio Folders-by-Type
+  p Usare un approccio
+    em &nbsp;Folders-by-Feature&nbsp;
+    | piuttosto che il classico approccio
+    em &nbsp;Folders-by-Type&nbsp;
   aside.notes
     | [Qui note di presentazione]
+//
+  section
+    h3.yellow Scaffolding - Struttura di un'App
+    h4
+      i.fa.fa-close.fa-red
+      | Folders-by-Type
+    small
+      | Approccio
+      em &nbsp;MVC&nbsp;
+      | (cartelle controllers, viste, direttive, etc..)
+    small
+      em
+        strong Perchè no?
+        br
+        | Al crescere del progetto la struttura risulta dispersiva, e non consente di rintracciare facilmente le risorse del progetto, oltre che scomode da rendere riutilizzabili.
+    hr
+    h4
+      i.fa.fa-check.fa-green
+      | Folders-by-Feature
+    small
+      | L'approccio&nbsp;
+      em Folders-by-Feature
+      |  invece organizza i files per&nbsp;
+      em funzionalità
+    small
+      em
+        strong Perchè si?
+        br
+        | La struttura risulta quindi modulare!
+        br
+        | Lo sviluppatore può rintracciare facilmente il codice ed identificare ciò che rappresenta a colpo d'occhio.
+        | La struttura inoltre è piatta e non c'è ripetitività o nomi ridondanti.
+    aside.notes
+      | [Qui note di presentazione]
 section
-  h3.yellow 1.1 - Struttura di un'App
-  h4
-    i.fa.fa-close.fa-red
-    | Folders-by-Type
-  small
-    | Approccio
-    em &nbsp;MVC&nbsp;
-    | (cartelle controllers, viste, direttive, etc..)
-  small
-    em
-      strong Perchè no?
-      br
-      | Al crescere del progetto la struttura risulta dispersiva, e non consente di rintracciare facilmente le risorse del progetto, oltre che scomode da rendere riutilizzabili.
-  hr
-  h4
-    i.fa.fa-check.fa-green
-    | Folders-by-Feature
-  small
-    | L'approccio&nbsp;
-    em Folders-by-Feature
-    |  invece organizza i files per&nbsp;
-    em funzionalità
-  small
-    em
-      strong Perchè si?
-      br
-      | La struttura risulta quindi modulare!
-      br
-      | Lo sviluppatore può rintracciare facilmente il codice ed identificare ciò che rappresenta a colpo d'occhio.
-      | La struttura inoltre è piatta e non c'è ripetitività o nomi ridondanti.
-  aside.notes
-    | [Qui note di presentazione]
-section
-  h3.yellow 1.1 - Struttura di un'App
+  h3.yellow Scaffolding - Struttura di un'App
   table(style="width:100%")
     tr
       td

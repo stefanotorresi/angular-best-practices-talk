@@ -1,45 +1,30 @@
-// ARCHITETTURA - MODULES
+// ARCHITETTURA - TIPS
 section
-  h3.yellow 2.1 - Tips
-  small
-    table(style="width:100%")
-        tr
-          td
-            h5 Moduli piccoli ed autonomi
-          td
-            | Ogni singolo modulo si occupa di una singola responsabilità.
-          td
-        tr
-          td
-            h5 Modulo principale per l'App
-          td
-            | Modulo il cui ruolo è mettere insieme tutti i moduli le funzionalità dell'Applicazione. Comunemente assegnamo il nome
-            em &nbsp;app.
-        tr
-          td
-            h5 Moduli usati come dipendenze
-          td
-            | Comunemente assegnamo un nome che aiuti a definire la gerarchia dei moduli all'interno dell'Applicazione, esempio
-            em &nbsp;app.blog
-        tr
-          td
-            h5 Usare Setter/Getter
-          td
-            | Dichiarare i moduli usando la sintassi Setter (e non usando delle variabili) e recuperarli da lì in avanti via sintassi Getter
+  h3.yellow 2.1 - Tips Generali
+  ul
+    li
+      h5 Responsabilità Singola
+        small Definire un componente per singolo file.
+    li
+      h5 IIEF
+        small
+          | La
+          em &nbsp;Immediately Invoked Function Expression&nbsp;
+          | rimuove le variabili globali dallo scope.
+    li
+      h5 Named Functions
+        small Usa funzioni che hanno un nome piuttosto che passare una funzione anonima nella dichiarazione dei componenti.
   pre.no-default.nohighlight.half-width
     code.
-      //Modulo Principale
-      angular
-        .module('app', [
-          'ngAnimate',
-          'ngRoute',
-          'app.blog',
-          'app.user'
-      ]);
+      (function() {
+          'use strict';
 
-      //Moduli Dipendenze
-      angular.module('app.blog', []);
-      angular.module('storage', []);
+          angular
+              .module('app')
+              .factory('storage', storage);
+
+          function storage() { }
+      })();
   aside.notes
     | [Qui note di presentazione]
-// END ARCHITETTURA - MODULES
+// END ARCHITETTURA - TIPS
