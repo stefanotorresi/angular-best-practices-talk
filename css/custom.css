@@ -70,7 +70,12 @@ h4 i.fa {
     box-shadow: none;
 }
 
-li h5 small {
+li h5 {
+    font-size: .8em!important
+}
+
+.reveal li h5 small {
     text-transform: none;
     font-weight: normal!important;
+    display: block;
 }

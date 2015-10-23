@@ -15,44 +15,22 @@ section
   ul
     li
       h5 Moduli piccoli ed autonomi
-      small Ogni singolo modulo si occupa di una singola responsabilità.
+        small Ogni singolo modulo si occupa di una singola responsabilità.
     li
       h5 Modulo principale per l'App
         small Modulo il cui ruolo è mettere insieme tutti i moduli le funzionalità dell'Applicazione. Comunemente assegnamo il nome
           em &nbsp;app.
     li
       h5 Moduli usati come dipendenze
-      small unemente assegnamo un nome che aiuti a definire la gerarchia dei moduli all'interno dell'Applicazione, esempio
-        em &nbsp;app.blog
+        small unemente assegnamo un nome che aiuti a definire la gerarchia dei moduli all'interno dell'Applicazione, esempio
+          em &nbsp;app.blog
     li
       h5 Usare Setter/Getter
-      small Dichiarare i moduli usando la sintassi Setter (e non usando delle variabili) e recuperarli da lì in avanti via sintassi Getter
-
-  small
-    table(style="width:100%")
-        tr
-          td
-            h5 Moduli piccoli ed autonomi
-          td
-            | Ogni singolo modulo si occupa di una singola responsabilità.
-          td
-        tr
-          td
-            h5 Modulo principale per l'App
-          td
-            | Modulo il cui ruolo è mettere insieme tutti i moduli le funzionalità dell'Applicazione. Comunemente assegnamo il nome
-            em &nbsp;app.
-        tr
-          td
-            h5 Moduli usati come dipendenze
-          td
-            | Comunemente assegnamo un nome che aiuti a definire la gerarchia dei moduli all'interno dell'Applicazione, esempio
-            em &nbsp;app.blog
-        tr
-          td
-            h5 Usare Setter/Getter
-          td
-            | Dichiarare i moduli usando la sintassi Setter (e non usando delle variabili) e recuperarli da lì in avanti via sintassi Getter
+        small Dichiarare i moduli usando la sintassi Setter (e non usando delle variabili) e recuperarli da lì in avanti via sintassi Getter
+  aside.notes
+    | [Qui note di presentazione]
+section
+  h3.yellow 2.1 - Moduli
   pre.no-default.nohighlight.half-width
     code.
       //Modulo Principale
@@ -66,6 +44,7 @@ section
 
       //Moduli Dipendenze
       angular.module('app.blog', []);
+
       angular.module('storage', []);
   aside.notes
     | [Qui note di presentazione]
