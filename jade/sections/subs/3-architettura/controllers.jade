@@ -5,10 +5,10 @@ section
     li
       h5 Delegare la <em>business logic</em> a servizi dedicati
         small Limitare le funzionalità dei controller al binding dei dati e al controllo delle view.
-    li
+    li.fragment
       h5 Usare la sintassi <code>controllerAs</code>
         small Prevenire l'affollamento degli <code>$scope</code> e facilitare i riferimenti nidificati.
-    li
+    li.fragment
       h5 Usare servizi ed eventi per comunicazioni cross-controller
         small Disaccoppiare componenti interdipendenti il più possibile isolando i comportamenti collegati.
 
@@ -39,7 +39,9 @@ section
   pre
     code.javascript.
       angular.controller('appBlogController', function(appBlogService) {
-        this.blogPosts = appBlogService.getPosts();
+        appBlogService.getPosts().then(function(blogPosts){
+          this.blogPosts = blogPosts;
+        });
       });
 
 section
@@ -57,7 +59,9 @@ section
           });
         })
         .controller('appBlogController', function($scope, appBlogService) {
-          $scope.blogPosts = appBlogService.getPosts();
+          appBlogService.getPosts().then(function(blogPosts){
+            $scope.blogPosts = blogPosts;
+          });
           $scope.deletePost = function(postId) { /* etc */ };
         });
 
@@ -77,7 +81,9 @@ section
           });
         })
         .controller('appBlogController', function(appBlogService) {
-          this.blogPosts = appBlogService.getPosts();
+          appBlogService.getPosts().then(function(blogPosts){
+            this.blogPosts = blogPosts;
+          });
           this.deletePost = function(postId) { /* etc */ };
         });
   aside.notes
@@ -99,8 +105,8 @@ section
       // nel modulo blog
       angular.controller('appBlogController', function($scope) {
         $scope.$on('userLoggedIn', function(event, data) {
-            this.author = data.username;
-            this.showNewPostButton = true;
+          this.author = data.username;
+          this.showNewPostButton = true;
         });
       });
   aside.notes

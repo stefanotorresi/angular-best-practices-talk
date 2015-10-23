@@ -5,17 +5,17 @@ section
     li
       h5 Un modulo principale
         small Il punto di partenza che funge da somma delle parti.
-    li
+    li.fragment
       h5 Un modulo per le funzioni comuni
-        small Separare le funzioni comuni in un modulo dedicato, per evitare dipendenze circolari tra sotto-moduli
-    li
+        small Separare le funzioni comuni in un modulo dedicato, per evitare dipendenze circolari tra sotto-moduli.
+    li.fragment
       h5 Moduli piccoli ed autonomi
-        small Limitare le funzionalità di ogni sotto-modulo ad una <strong>singola responsabilità</strong>.
-    li
+        small Limitare le funzionalità di ogni sotto-modulo ad una <span class="yellow">singola area semantica</span>.
+    li.fragment
       h5 Coerenza nelle nomenclature
         small Usare un prefisso proprietario per distinguere facilmente il vostro codice da quello di terzi (evitare "<code>ng</code>"!).
   aside.notes
-    p Una <em>singola responsabilità</em> è un concetto molto ampio che può significare tanto un singolo componente (es. una direttiva), come un'intera area semantica dell'applicazione (quindi un insieme di configurazioni, servizi, controller e direttive).
+    p Una <em>singola area semantica</em> è un concetto molto vario che può significare tanto un singolo componente (es. una direttiva), come un'intera sezione dell'applicazione (quindi un insieme di configurazioni, servizi, controller e direttive).
 section
   h3.yellow Dichiarazione moduli
   pre.small
