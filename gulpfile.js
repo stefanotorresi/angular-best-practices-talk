@@ -5,7 +5,6 @@ var path    = require('path');
 var argv    = require('yargs').argv;
 var gulpsync = plugins.sync(gulp);
 
-var isProduction = argv.production || argv.prod || false;
 var paths = {
     dist: './',
     jade: 'jade/'
@@ -16,7 +15,7 @@ var srcFiles = {
 };
 
 gulp.task('clean', function (cb) {
-    log('Cleaning dist directory...');
+    log('Cleaning index file...');
     del([ './index.html' ], { force: true }, cb);
 });
 
@@ -26,11 +25,6 @@ gulp.task('jade', function() {
         .pipe(plugins.changed(paths.dist, {extension: '.html'}))
         .pipe(plugins.jade())
         .on('error', handleError)
-        /*.pipe(plugins.htmlPrettify({
-            indent_char: ' ',
-            indent_size: 2,
-            unformatted: ['sub', 'sup', 'b', 'i', 'u']
-        }))*/
         .pipe(gulp.dest(paths.dist))
     ;
 });
@@ -43,7 +37,7 @@ gulp.task('watch', function() {
     gulp.watch([ paths.jade, srcFiles.jade ], ['jade']);
 
     // a delay before triggering browser reload to ensure everything is compiled
-    var livereloadDelay = 1500;
+    var livereloadDelay = 1000;
 
     // list of source file to watch for live reload
     var watchSource = [].concat(
@@ -65,10 +59,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('build', gulpsync.sync([
-    'clean',
-    [
-        'jade'
-    ]
+    'clean', [ 'jade' ]
 ]), function(){
     log('*******************');
     log('* Build Completed *');
@@ -76,7 +67,8 @@ gulp.task('build', gulpsync.sync([
 });
 
 gulp.task('default', gulpsync.sync([
-    'build'
+    'build',
+    'watch'
 ]));
 
 /////////////////////
