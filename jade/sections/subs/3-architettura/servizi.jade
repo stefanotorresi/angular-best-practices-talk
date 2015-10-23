@@ -15,7 +15,8 @@ section
     p Dare qualche accenno discorsivo sul <em>SRP</em> perché è difficile esporre degli esempi senza essere prolissi.
 
 section
-  +section-title-mini("fa-cogs", "Architettura", "Promise chaining")
+  +section-title-mini("fa-cogs", "Architettura", "Servizi")
+  h5 Promise chaining
   p
     i.fa.fa-close.fa-red.fa-fw
     | async -> sync
@@ -33,7 +34,8 @@ section
     });
 
 section
-  +section-title-mini("fa-cogs", "Architettura", "Promise chaining")
+  +section-title-mini("fa-cogs", "Architettura", "Servizi")
+  h5 Promise chaining
   p
     i.fa.fa-check.fa-green.fa-fw
     | async -> async
@@ -54,7 +56,8 @@ section
       });
 
 section
-  +section-title-mini("fa-cogs", "Architettura", "Dichiarazione servizi")
+  +section-title-mini("fa-cogs", "Architettura", "Servizi")
+  h5 Dichiarazione Servizi
   p Il più semplice: <code>constructor function</code>
   pre: code.javascript.
     function AppBlogService() { /* etc */ }
@@ -62,7 +65,8 @@ section
     angular.service('appBlogService', AppBlogService);
 
 section
-  +section-title-mini("fa-cogs", "Architettura", "Dichiarazione servizi")
+  +section-title-mini("fa-cogs", "Architettura", "Servizi")
+  h5 Dichiarazione Servizi
   p Più flessibile: <code>factory</code>
   pre.small: code.javascript.
     function AppBlogService() { /* etc */ }
@@ -75,7 +79,8 @@ section
     });
 
 section
-  +section-title-mini("fa-cogs", "Architettura", "Dichiarazione servizi")
+  +section-title-mini("fa-cogs", "Architettura", "Servizi")
+  h5 Dichiarazione Servizi
   p Massima configurabilità: <code>provider</code>
   pre.small: code.javascript.
     angular
