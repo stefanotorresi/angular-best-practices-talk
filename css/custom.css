@@ -1,5 +1,5 @@
 .reveal section img.no-default {
-    margin: 0px;
+    margin: 0;
     box-shadow: none;
     border: none;
     background: none;
@@ -74,8 +74,16 @@ li h5 {
     font-size: .8em!important
 }
 
-.reveal li h5 small {
+.reveal h5 > small {
     text-transform: none;
     font-weight: normal!important;
     display: block;
+}
+
+.reveal h3 > code,
+.reveal h4 > code,
+.reveal h5 > code {
+    text-transform: none;
+    font-weight: normal;
+    color: #fdcd16!important;
 }

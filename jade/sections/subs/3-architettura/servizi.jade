@@ -1,0 +1,94 @@
+section
+  h3.yellow Servizi
+  ul
+    li
+      h5 Applicare il Single Responsibility Principle (<em>cum grano salis</em>)
+        small Limitare i motivi per i quali un servizio potrebbe dover cambiare.
+    li.fragment
+      h5 Restituire una <code>promise</code> dalle funzioni che operano a loro volta su <code>promises</code>
+        small Permettere la concatenazione di logiche asincrone.
+    li.fragment
+      h5 Service, Factory e Provider
+        small Usare la dichiarazione giusta per ogni circostanza.
+
+  aside.notes
+    p Dare qualche accenno discorsivo sul <em>SRP</em> perché è difficile esporre degli esempi senza essere prolissi.
+
+section
+  h3.yellow Promise chaining
+  p
+    i.fa.fa-close.fa-red.fa-fw
+    | async -> sync
+  pre: code.javascript.
+    angular.controller('appBlogService', function($http) {
+      var data.blogPosts = [];
+
+      this.getPosts = function() {
+        $http.get('/api/blog-posts')
+          .then(function(response){
+              data.blogPosts = response.data;
+          });
+        return data.blogPosts;
+      });
+    });
+
+section
+  h3.yellow Promise chaining
+  p
+    i.fa.fa-check.fa-green.fa-fw
+    | async -> async
+  pre: code.javascript.
+    angular
+      .service('appBlogService', function($http) {
+        this.getPosts = function() {
+          return $http.get('/api/blog-posts')
+            .then(function(response){
+                return response.data;
+            });
+        });
+      })
+      .controller('appBlogController', function(appBlogService) {
+        appBlogService.getPosts().then(function(blogPosts){
+          this.blogPosts = blogPosts;
+        });
+      });
+
+section
+  h3.yellow Dichiarazione servizi
+  p Il più semplice: <code>constructor function</code>
+  pre: code.javascript.
+    var AppBlogService = function($http) { /* etc */ };
+
+    angular.service('appBlogService', AppBlogService);
+
+section
+  h3.yellow Dichiarazione servizi
+  p Più flessibile: <code>factory</code>
+  pre.small: code.javascript.
+    var AppBlogService = function(someDependency) { /* etc */ };
+
+    angular.factory('appBlogService', function(dependency1, dependency2) {
+      var someDependency;
+      // preparazione di someDependency tramite le altre dipendenze...
+
+      return new AppBlogService(someDependency);
+    });
+
+section
+  h3.yellow Dichiarazione servizi
+  p Massima configurabilità: <code>provider</code>
+  pre.small: code.javascript.
+    angular
+      .provider('appBlogService', function() {
+        this.config = { /* etc */ };
+
+        this.$get = function($http) {
+          return new AppBlogService(this.config, $http);
+        }
+      })
+      .config(function(appBlogServiceProvider) {
+      /* si può configurare il servizio prima che venga istanziato */
+        appBlogServiceProvider.config = { /* etc */ };
+      })
+    ;
+

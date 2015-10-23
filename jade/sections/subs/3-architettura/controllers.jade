@@ -3,11 +3,110 @@ section
   h3.yellow Controllers
   ul
     li
-      h5 Usare la sintassi <em>controllerAs</em>
-        small Previene l'affollamento degli $scope
-    li
-      h5 Usare la sintassi <em>controllerAs</em>
-        small
-    li
-      h5
-        small
+      h5 Delegare la <em>business logic</em> a servizi dedicati
+        small Limitare le funzionalità dei controller al binding dei dati e al controllo delle view.
+    li.fragment
+      h5 Usare la sintassi <code>controllerAs</code>
+        small Prevenire l'affollamento degli <code>$scope</code> e facilitare i riferimenti nidificati.
+    li.fragment
+      h5 Usare servizi ed eventi per comunicazioni cross-controller
+        small Disaccoppiare componenti interdipendenti il più possibile isolando i comportamenti collegati.
+
+section
+  h3.yellow Delegare la <em>business logic</em>
+  p
+    i.fa.fa-close.fa-red.fa-fw
+    | Fat controller
+  pre
+    code.javascript.
+      angular.controller('appBlogController', function($http) {
+        $http.get('/api/blog-posts')
+          .then(function(response){
+            // convertire la risposta in dati rappresentabili
+          })
+          .then(function(error){
+            // gestire errori http
+          })
+        ;
+        // segue data binding...
+      });
+
+section
+  h3.yellow Delegare la <em>business logic</em>
+  p
+    i.fa.fa-check.fa-green.fa-fw
+    | Silm controller / Fat model
+  pre
+    code.javascript.
+      angular.controller('appBlogController', function(appBlogService) {
+        appBlogService.getPosts().then(function(blogPosts){
+          this.blogPosts = blogPosts;
+        });
+      });
+
+section
+  h3.yellow Sintassi <code>controllerAs</code>
+  p
+    i.fa.fa-close.fa-red.fa-fw
+    | <code>$scope</code> affollati
+  pre
+    code.javascript.
+      angular.module('app.blog')
+        .config(function($routeProvider) {
+          $routeProvider.when('/blog', {
+            template: 'blog.html'
+            controller: 'appBlogController'
+          });
+        })
+        .controller('appBlogController', function($scope, appBlogService) {
+          appBlogService.getPosts().then(function(blogPosts){
+            $scope.blogPosts = blogPosts;
+          });
+          $scope.deletePost = function(postId) { /* etc */ };
+        });
+
+section
+  h3.yellow Sintassi <code>controllerAs</code>
+  p
+    i.fa.fa-check.fa-green.fa-fw
+    | <code>controllerAs</code> li snellisce
+  pre: code.javascript.
+    angular.module('app.blog')
+      .config(function($routeProvider) {
+        $routeProvider.when('/blog', {
+          template: 'blog.html'
+          controller: 'appBlogController'
+          controllerAs: 'blog'
+        });
+      })
+      .controller('appBlogController', function(appBlogService) {
+        appBlogService.getPosts().then(function(blogPosts){
+          this.blogPosts = blogPosts;
+        });
+        this.deletePost = function(postId) { /* etc */ };
+      });
+  aside.notes
+    p La sintassi <code>controllerAs</code> è più esplicita ed evita di far sfociare le logiche di controllo negli <code>$scope</code>
+
+section
+  h3.yellow Comunicazione Cross-controller
+  pre
+    code.javascript.
+      // nel modulo utente
+      angular.service('appUserService', function($http, $rootScope) {
+        this.login = function() {
+          $http.post('/api/login').then(function(response) {
+            $rootScope.$broadcast('userLoggedIn', response.data);
+          });
+        };
+      });
+
+      // nel modulo blog
+      angular.controller('appBlogController', function($scope) {
+        $scope.$on('userLoggedIn', function(event, data) {
+          this.author = data.username;
+          this.showNewPostButton = true;
+        });
+      });
+  aside.notes
+    p La combinazione di servizi ed eventi permette l'interoperazione tra moduli pur mantenendo un completo disaccoppiamento
