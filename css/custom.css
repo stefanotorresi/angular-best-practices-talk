@@ -68,6 +68,11 @@ h4 i.fa {
     width: 50%!important;
 }
 
+.full-width {
+    width: 100%!important;
+}
+
+
 .reveal section img {
     background: none;
     border: none;
