@@ -1,8 +1,6 @@
 // TEMPLATES - TIPS
 section
-  h3.yellow
-    span.section-title Templates
-    | Tips
+  +section-title-mini("fa-file-code-o", "Templates", "Tips")
   ul
     li
       h5 Usare One-Way-Binding {{::}}
@@ -24,9 +22,7 @@ section
         | e <em>ng-show/ng-hide</em>
         small La prima aggiunge o rimuove completamente l'elemento dal DOM (e quindi il <em>wachter</em> relativo) mentre le seconde mostrano o nascondono semplicemente l'elemento tramite stile <em>CSS</em>.
 section
-  h3.yellow
-    span.section-title Templates
-    | Tips
+  +section-title-mini("fa-file-code-o", "Templates", "Tips")
   ul
     li
       h5 Prevenire FOUC (Flash Of Unstyled Content)
