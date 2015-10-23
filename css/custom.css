@@ -9,8 +9,8 @@
     box-shadow: none;
 }
 
-.reveal pre.no-default {
-    font-size: 0.40em;
+.reveal pre.small {
+    font-size: 0.50em;
 }
 
 .reveal pre code {
