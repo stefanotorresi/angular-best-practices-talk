@@ -1,6 +1,6 @@
 // SCAFFOLDING - STRUTTURA
 section
-  h3.yellow Scaffolding - Struttura di un'App
+  +section-title-mini("fa-folder-open-o", "Scaffolding", "Struttura di un'Applicazione")
   h4 Folders-by-Type vs Folders-by-Feature
   p Usare un approccio
     em &nbsp;Folders-by-Feature&nbsp;
@@ -10,7 +10,7 @@ section
     | [Qui note di presentazione]
 //
   section
-    h3.yellow Scaffolding - Struttura di un'App
+    +section-title-mini("fa-folder-open-o", "Scaffolding", "Struttura di un'Applicazione")
     h4
       i.fa.fa-close.fa-red
       | Folders-by-Type
@@ -43,15 +43,14 @@ section
     aside.notes
       | [Qui note di presentazione]
 section
-  h3.yellow Scaffolding - Struttura di un'App
+  +section-title-mini("fa-folder-open-o", "Scaffolding", "Struttura di un'Applicazione")
   table(style="width:100%")
     tr
       td
-        h4
-          i.fa.fa-close.fa-red
+        p
+          i.fa.fa-close.fa-red.fa-fw
           | Folders-by-Type
-        pre.no-default.nohighlight
-          code.
+        pre.smaller.nohighlight: code.
             app/
               app.module.js
               app.config.js
@@ -61,7 +60,7 @@ section
                   blog.js
                   shell.js
                   user.js
-                  topnav.js
+                  ...
               directives/
                   calendar.directive.js
                   calendar.directive.html
@@ -77,11 +76,10 @@ section
                   shell.html
                   ...
       td
-        h4
-          i.fa.fa-check.fa-green
+        p
+          i.fa.fa-check.fa-green.fa-fw
           | Folders-by-Feature
-        pre.no-default.nohighlight
-          code.
+        pre.smaller.nohighlight: code.
             app/
               app.module.js
               app.config.js
@@ -104,4 +102,14 @@ section
               user/
                   user.html
                   user.controller.js
+
+
+  aside.notes
+    p ByType - Al crescere del progetto la struttura risulta dispersiva, e non consente di rintracciare facilmente le risorse del progetto, oltre che scomode da rendere riutilizzabili.
+    p
+      | ByFeature - Lo sviluppatore può rintracciare facilmente il codice ed identificare ciò che rappresenta a colpo d'occhio.
+      br
+      | La struttura inoltre è piatta e non c'è ripetitività o nomi ridondanti.
+    p Config File & Route File
+    p File HTML nella stessa cartella?
 // END SCAFFOLDING - STRUTTURA

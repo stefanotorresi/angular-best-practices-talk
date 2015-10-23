@@ -1,34 +1,32 @@
 // SCAFFOLDING - NOMENCLATURA
 section
-  h3.yellow Scaffolding - Nomenclatura
-  h4 La regola fondamentale è la consistenza!
+  +section-title-mini("fa-folder-open-o", "Scaffolding", "Nomenclatura")
+  h4 La regola fondamentale è la coerenza!
   p Le convezioni sui nomi (sia dei files che dei componenti di <em>AngularJS</em>) consentono di organizzare bene un progetto, rendendo facile la rintracciabilità e la redazione del codice.
 section
-  h3.yellow Scaffolding - Nomenclatura
+  +section-title-mini("fa-folder-open-o", "Scaffolding", "Nomenclatura")
   h4
     i.fa.fa-check.fa-green
     | Nomi dei files
   p
-    | Lo schema suggerito è <em>feature.type.js</em> e per i test è <em>feature.type.spec.js</em>
+    | Lo schema suggerito è <em>feature.type.js</em>
+    br
+    | e per i test è <em>feature.type.spec.js</em>
   small
     em
-      strong Perchè si?
-      br
       | Seguire uno schema nell'assegnazione dei nomi dei files consente di individuare a colpo d'occhio la funzionalità ed il tipo di codice contenuto in ogni singolo file.
       br
       | Uno schema aiuta inoltre a gestire i processi di automazione (testing, concatenamento, minificazione, etc...).
-  pre.no-default.nohighlight.half-width
-    code.
+  pre.no-default.nohighlight.half-width: code.
       calendar.directive.js
       calendar.directive.spec.js
       shell.controller.js
       shell.controller.spec.js
       blog.controller.js
       blog.controller.spec.js
-      data.service.js
-      data.service.spec.js
+      ...
 section
-  h3.yellow Scaffolding - Nomenclatura
+  +section-title-mini("fa-folder-open-o", "Scaffolding", "Nomenclatura")
   h4
     i.fa.fa-check.fa-green
     | Nomi dei componenti di AngularJS
@@ -44,14 +42,14 @@ section
           td Controllers
           td camelCase
           td
-            code vrBlogsController
+            code appBlogsController
           td
             | Suffisso <em>Controller</em>
         tr
           td Services/Factories
           td camelCase
           td
-            code vrDataService
+            code appDataService
           td
             | Suffisso <em>Service</em>
             br
@@ -60,21 +58,18 @@ section
           td Directives
           td camelCase
           td
-            code vrCalendarDirective
+            code appCalendarDirective
           td
             | Suffisso <em>Directive</em>
     p
       em
-        strong Perchè si?
-        br
         | Seguire le convenzioni aiuta ad identificare facilmente e referenziare i componenti,
         br
         | oltre che ad evitare eventuali collisioni di nomi.
-  pre.no-default.nohighlight.half-width
-    code.
+  pre.small: code.javascript.
       angular
         .module
-        .controller('vrBlogsController', BlogsController);
+        .controller('appBlogsController', BlogsController);
 
         function BlogsController() {}
   aside.notes

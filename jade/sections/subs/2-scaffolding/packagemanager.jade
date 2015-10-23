@@ -1,21 +1,21 @@
 // SCAFFOLDING - PACKAGE MANAGER
 section
-  h3.yellow Scaffolding - Package Manager
+  +section-title-mini("fa-folder-open-o", "Scaffolding", "Package Manager")
   h4 npm & Bower
   p Non possiamo fare a meno di un Package Manager!
   img.half-width(src='assets/bower-npm-logo.png')
   aside.notes
     | [Qui note di presentazione]
 section
-  h3.yellow Scaffolding - Package Manager
+  +section-title-mini("fa-folder-open-o", "Scaffolding", "Package Manager")
   h4
     i.fa.fa-check.fa-green
     | NPM
   p Comunemente usato per la gestione di moduli <em>Node.js</em>, ma funziona bene anche per il front-end.
   h4
-    i.fa.fa-check.fa-green
+    i.fa.fa-exclamation.yellow
     | Bower
-  p Creato esclusivamente per il front-end ed è ottimizzato per questo scopo.
+  p Creato esclusivamente per il front-end, puntando alla semplicità d'uso.
 
   small
     em
@@ -23,9 +23,6 @@ section
       | La più grande differenza è che <strong>NPM</strong> gestisce le dipendenze annidate mentre <strong>Bower</strong> richiede un albero delle dipendenze piatto.
       br
       | La ragione per cui molti progetti usano entrambi è che usano <strong>Bower</strong> per i pacchetti di front-end <strong>NPM</strong> per strumenti di sviluppo come <strong>Yeoman, Grunt, Gulp, JSHint, CoffeeScript, etc.</strong>
-
   aside.notes
-    p Un albero delle dipendenze nidificato significa che le dipendenze possono avere le proprie dipendenze che possono avere il proprio, e così via. Esso consente di preoccuparsi di conflitti di dipendenza come tutte le dipendenze utilizzano ad esempio la propria versione di sottolineatura.
-
-
+    p Cenno alle dipendenze nidificate in breve
 // END SCAFFOLDING - PACKAGE MANAGER
