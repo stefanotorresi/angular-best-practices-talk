@@ -1,0 +1,47 @@
+section
+  section
+    h2.yellow
+      i.fa.fa-info-circle.fa-fw
+      | Tips generici
+    p Alcuni accorgimenti generici ma di fondamentale importanza.
+
+  section
+    h3.yellow
+      i.fa.fa-info-circle.fa-fw
+      | Tips generici
+    ul
+      li
+        h5
+          em Immediately Invoked Function Expressions
+          small Evitare di intervenire accidentalmente sul global scope.
+      li.fragment
+        h5 Named functions
+          small Le named function offrono la possibilità di essere riuitilizzate.
+      li.fragment
+        h5 Strict Dependency Injection
+          small Permette di evitare errori di nomenclatura dei servizi, difficili da <em>debuggare</em>.
+
+  section
+    +section-title-mini('fa-info-circle', 'Tips generici', 'IIFE e <em>named function</em>')
+    pre: code.javascript.
+        (function() {
+            'use strict';
+            function AppBlogService() { /* etc */ }
+
+            angular.module('app.blog')
+                .factory('appBlogService', appBlogService);
+        })();
+
+  section
+    +section-title-mini('fa-info-circle', 'Tips generici', 'Strict DI mode')
+    pre: code.html.
+      &lt;html ng-app="application" ng-strict-di&gt;
+    | oppure
+    pre: code.javascript.
+      angular.bootstrap(document, ['application'], { strictDi: true});
+    | e poi
+    pre.small: code.javascript.
+      angular.service('appService', ['$http', function($http) { /* etc */ }]);
+
+    aside.notes
+      p Aggiungere che, per non essere forzati alla dichiarazione verbosa delle dipendenze tramite array, si può usare il task <em>ngAnnotate</em> su Gulp/Grunt

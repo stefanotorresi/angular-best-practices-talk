@@ -57,7 +57,7 @@ section
   +section-title-mini("fa-cogs", "Architettura", "Dichiarazione servizi")
   p Il più semplice: <code>constructor function</code>
   pre: code.javascript.
-    var AppBlogService = function($http) { /* etc */ };
+    function AppBlogService() { /* etc */ }
 
     angular.service('appBlogService', AppBlogService);
 
@@ -65,7 +65,7 @@ section
   +section-title-mini("fa-cogs", "Architettura", "Dichiarazione servizi")
   p Più flessibile: <code>factory</code>
   pre.small: code.javascript.
-    var AppBlogService = function(someDependency) { /* etc */ };
+    function AppBlogService() { /* etc */ }
 
     angular.factory('appBlogService', function(dependency1, dependency2) {
       var someDependency;

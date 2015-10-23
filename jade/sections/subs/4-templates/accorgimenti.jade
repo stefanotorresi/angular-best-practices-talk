@@ -1,0 +1,54 @@
+// TEMPLATES - TIPS
+section
+  +section-title-mini("fa-file-code-o", "Templates", "Accorgimenti")
+  ul
+    li
+      h5 Usare ove possibile il <em>one-way binding</em> tramite <code>::</code>
+        small Per prevenire un eccessivo numero di <em>watcher</em> nel <em>digest loop</em>.
+      pre.small: code.
+          <p>{{::boundOnce}}</p>
+    li.fragment
+      h5 Usare <code>ng-repeat</code> con <code>track by</code>
+        small Evita di ricreare gli elementi del DOM che risultano essere già presenti in lista, ad esempio dopo un aggiornamento del <em>model</em>.
+      pre.small
+        code.
+          <div ng-repeat="post in blogPost track by post.id">
+            <h3>{{post.title}}</h3>
+            <p>{{post.description}}</p>
+          </div>
+    li.fragment
+      h5 Utilizzare appropriatamente <code>ng-if</code>, <code>ng-show</code> e <code>ng-hide</code>
+        small La prima aggiunge o rimuove completamente l'elemento dal DOM mentre la seconda mostra o nasconde l'elemento tramite semplicei stili <em>CSS</em>.
+
+  aside.notes
+    p Notare come <code>ng-if</code> e <code>ng-show</code> siano complementari perché entrambi hanno pro e contro.
+
+section
+  +section-title-mini("fa-file-code-o", "Templates", "Accorgimenti")
+  ul
+    li
+      h5 Prevenire FOUC (Flash Of Unstyled Content)
+        small Evitare il fastidioso effetto non voluto utilizzando soluzioni come la direttiva <code>ng-cloak</code>, usando <code>ng-bind</code> piuttosto che la sintassi <code>{{ }}</code> o lavorando con le direttive <code>ng-show</code> ed <code>ng-hide</code>
+      table(width="100%")
+        tr
+          td
+            pre.small.html: code.html.
+              <!-- FOUC -->
+              <p>{{post.description}}</p>
+              <div>...</div>
+          td
+            pre.small.html: code.html.
+              <!-- No FOUC -->
+              <p ng-bind="post.description"></p>
+              <div ng-cloak>...</div>
+    li.fragment
+      h5 Utilizzare sempre le direttive <code>ng-</code>
+        small Se presenti, preferire sempre le direttive come <code>ng-href</code>, <code>ng-src</code>, etc... piuttosto che i rispettivi attributi HTML per evitare comportamenti indesiderati prima del parsing da parte di <code>$compile</code>.
+      pre.small.html: code.
+            <a ng-href="http://vroom.agency">...</a>
+            <img ng-src="..." />
+    li.fragment
+      h5 Evitare l'uso della direttiva <code>ng-controller</code>
+        small Accoppiare il controller in una <rm>route</em> consente a <em>route</em> diverse di invocare diversi accoppiamenti di <em>controller</em> e <em>view</em>.
+  aside.notes
+    p NG-CONTROLLER - Utile anche per avere un manifest chiaro del comportamento dei componenti
