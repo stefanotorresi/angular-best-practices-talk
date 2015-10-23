@@ -1,10 +1,10 @@
 section
-  h3.yellow Direttive
+  +section-title-mini("fa-cogs", "Architettura", "Direttive")
   ul
     li
       h5 Modificare il DOM <u>SEMPRE</u> tramite direttive
         small Le direttive sono specificatamente progettate per intervenire sul DOM.
-    li
+    li.fragment
       h5 Evitate jQuery per quanto possibile
         small jQlite e vanilla JS sono di solito più che sufficienti
     li.fragment
@@ -18,10 +18,9 @@ section
         small Il prefisso proprietario è ancora più importante nelle direttive perché è molto più alta la probabilità di collisione.
 
 section
-  h3.yellow
-    span.section-title Direttive
-    | Un esempio pratico
-  pre: code.javascript.
+  +section-title-mini("fa-cogs", "Architettura", "Direttive")
+  p Un esempio pratico
+  pre.small: code.javascript.
     angular.directive('appBlogPosts', function() {
       return {
         template: 'blog-posts.html',
@@ -31,7 +30,8 @@ section
         scope: {},
         link: function(scope, element, attr, controller) {
           element.on('swipe-left', function() {
-            var loadingImage = angular.element(element[0].querySelector('img.loading'));
+            var loadingImage = element[0].querySelector('img.loading');
+            loadingImage = angular.element(loadingImage);
             loadingImage.addClass('visible');
             controller.loadNextPage().then(function(){
               loadingImage.removeClass('visible');

@@ -16,19 +16,19 @@ section
         small Usare un prefisso proprietario per distinguere facilmente il vostro codice da quello di terzi (evitare "<code>ng</code>"!).
   aside.notes
     p Una <em>singola area semantica</em> è un concetto molto vario che può significare tanto un singolo componente (es. una direttiva), come un'intera sezione dell'applicazione (quindi un insieme di configurazioni, servizi, controller e direttive).
+
 section
-  h3.yellow Dichiarazione moduli
-  pre.small
-    code.javascript.
-      // Modulo principale
-      angular.module('app', [ 'app.common', 'app.blog', 'app.user' ]);
+  +section-title-mini("fa-cogs", "Architettura", "Dichiarazione moduli")
+  pre.small: code.javascript.
+    // Modulo principale
+    angular.module('app', [ 'app.common', 'app.blog', 'app.user' ]);
 
-      // Modulo comune
-      angular.module('app.common', []);
+    // Modulo comune
+    angular.module('app.common', []);
 
-      // Sotto moduli
-      angular.module('app.user', [ 'app.common', 'ngRoute' ]);
-      angular.module('app.blog', [ 'app.common', 'ngRoute', 'textAngular' ]);
+    // Sotto moduli
+    angular.module('app.user', [ 'app.common', 'ngRoute' ]);
+    angular.module('app.blog', [ 'app.common', 'ngRoute', 'textAngular' ]);
 
   aside.notes
     p Il modulo <code>app.common</code> non ha dipendenze verso altri moduli dell'applicazione; questo risolve il problema delle dipendenze circolari.

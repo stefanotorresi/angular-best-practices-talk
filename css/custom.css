@@ -84,9 +84,9 @@ li h5 {
     display: block;
 }
 
-.reveal h3 > code,
-.reveal h4 > code,
-.reveal h5 > code {
+.reveal h3 code,
+.reveal h4 code,
+.reveal h5 code {
     text-transform: none;
     font-weight: normal;
     color: #fdcd16!important;
