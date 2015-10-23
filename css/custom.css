@@ -13,6 +13,10 @@
     font-size: 0.50em;
 }
 
+.reveal pre.smaller {
+    font-size: 0.40em;
+}
+
 .reveal pre code {
     max-height: 450px;
 }
@@ -86,4 +90,11 @@ li h5 {
     text-transform: none;
     font-weight: normal;
     color: #fdcd16!important;
+}
+
+.gdg-logo {
+    width: 30px;
+    margin: 0!important;
+    left: 50px;
+    position: absolute;
 }
