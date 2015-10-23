@@ -70,22 +70,21 @@ section
   p
     i.fa.fa-check.fa-green.fa-fw
     | <code>controllerAs</code> li snellisce
-  pre
-    code.javascript.
-      angular.module('app.blog')
-        .config(function($routeProvider) {
-          $routeProvider.when('/blog', {
-            template: 'blog.html'
-            controller: 'appBlogController'
-            controllerAs: 'blog'
-          });
-        })
-        .controller('appBlogController', function(appBlogService) {
-          appBlogService.getPosts().then(function(blogPosts){
-            this.blogPosts = blogPosts;
-          });
-          this.deletePost = function(postId) { /* etc */ };
+  pre: code.javascript.
+    angular.module('app.blog')
+      .config(function($routeProvider) {
+        $routeProvider.when('/blog', {
+          template: 'blog.html'
+          controller: 'appBlogController'
+          controllerAs: 'blog'
         });
+      })
+      .controller('appBlogController', function(appBlogService) {
+        appBlogService.getPosts().then(function(blogPosts){
+          this.blogPosts = blogPosts;
+        });
+        this.deletePost = function(postId) { /* etc */ };
+      });
   aside.notes
     p La sintassi <code>controllerAs</code> è più esplicita ed evita di far sfociare le logiche di controllo negli <code>$scope</code>
 

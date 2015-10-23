@@ -85,4 +85,5 @@ li h5 {
 .reveal h5 > code {
     text-transform: none;
     font-weight: normal;
+    color: #fdcd16!important;
 }

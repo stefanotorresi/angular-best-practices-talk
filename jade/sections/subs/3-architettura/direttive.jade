@@ -1,0 +1,50 @@
+section
+  h3.yellow Direttive
+  ul
+    li
+      h5 Modificare il DOM <u>SEMPRE</u> tramite direttive
+        small Le direttive sono specificatamente progettate per intervenire sul DOM.
+    li
+      h5 Evitate jQuery per quanto possibile
+        small jQlite e vanilla JS sono di solito più che sufficienti
+    li.fragment
+      h5 Utilizzare appropriatamente <code>controller</code> e <code>postLink</code>
+        small <code>controller</code> per riutilizzare la logica, <code>postLink</code> per accedere al DOM.
+    li.fragment
+      h5 Utilizzare la sintassi <code>controllerAs</code>
+        small In maniera analoga ai controller.
+    li.fragment
+      h5 Coerenza nelle nomenclature
+        small Il prefisso proprietario è ancora più importante nelle direttive perché è molto più alta la probabilità di collisione.
+
+section
+  h3.yellow
+    span.section-title Direttive
+    | Un esempio pratico
+  pre: code.javascript.
+    angular.directive('appBlogPosts', function() {
+      return {
+        template: 'blog-posts.html',
+        controller: 'appBlogController',
+        controllerAs: 'blogCtrl'
+        bindToController: true,
+        scope: {},
+        link: function(scope, element, attr, controller) {
+          element.on('swipe-left', function() {
+            var loadingImage = angular.element(element[0].querySelector('img.loading'));
+            loadingImage.addClass('visible');
+            controller.loadNextPage().then(function(){
+              loadingImage.removeClass('visible');
+            });
+          });
+        }
+      };
+    });
+
+  aside.notes
+    | L'esempio espone tutti i diversi aspetti dei punti esposti nella slide precedente
+    ul
+      li Notare il parametro <code>bindToController</code> in accoppiata con la sintassi <code>controllerAs</code>
+      li Notare come la logica di controllo è delegata ad un controller separato, mentre la manipoalzione del DOM è appannaggio della funzione <code>postlink</code>
+      li Notare l'utilizzo della funzione browser-nativa <code>querySelector</code> e di jQlite per operare sul DOM
+
