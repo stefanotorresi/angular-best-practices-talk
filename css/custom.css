@@ -30,10 +30,11 @@
 }
 
 #logo-vroom, #logo-h5t {
-    width: 30%;
+    max-width: 30%;
     opacity: 1;
     -webkit-transition: opacity .5s;
     transition: opacity .5s;
+    margin: 5px;
 }
 
 .no-logos  #logo-h5t, .no-logos  #logo-vroom{
