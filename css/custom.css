@@ -21,12 +21,16 @@
     max-height: 450px;
 }
 
-
-#logo-vroom, #logo-h5t {
+#img-logos {
     position:fixed;
     bottom: 20px;
     left: 20px;
     z-index: 9999;
+    width: 30%;
+}
+
+#logo-vroom, #logo-h5t {
+    width: 30%;
     opacity: 1;
     -webkit-transition: opacity .5s;
     transition: opacity .5s;
