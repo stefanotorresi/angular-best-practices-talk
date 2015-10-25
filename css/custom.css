@@ -26,11 +26,11 @@
     bottom: 20px;
     left: 20px;
     z-index: 9999;
-    width: 30%;
+    max-width: 50%;
 }
 
 #logo-vroom, #logo-h5t {
-    max-width: 30%;
+    max-width: 50%;
     opacity: 1;
     -webkit-transition: opacity .5s;
     transition: opacity .5s;
