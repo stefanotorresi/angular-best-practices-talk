@@ -5,26 +5,24 @@ html(lang='en')
   head
     meta(charset='utf-8')
     title AngularJS Best Practices
-    meta(name='description', content='A framework for easily creating beautiful presentations using HTML')
-    meta(name='author', content='Hakim El Hattab')
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name='apple-mobile-web-app-status-bar-style', content='black-translucent')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui')
-    link(rel='stylesheet', href='css/reveal.css')
-    link#theme(rel='stylesheet', href='css/theme/black.css')
+    link(rel='stylesheet', href='node_modules/reveal.js/css/reveal.css')
+    link#theme(rel='stylesheet', href='node_modules/reveal.js/css/theme/black.css')
     link(rel='stylesheet', href='css/custom.css')
     // Code syntax highlighting
-    link(rel='stylesheet', href='lib/css/zenburn.css')
-    link(rel='stylesheet', href='lib/font/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='node_modules/reveal.js/lib/css/zenburn.css')
+    link(rel='stylesheet', href='node_modules/font-awesome/css/font-awesome.min.css')
     // Printing and PDF exports
     script.
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      link.href = 'node_modules/reveal.js/' + (window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css');
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     //if lt IE 9
-      script(src='lib/js/html5shiv.js')
+      script(src='node_modules/reveal.js/lib/js/html5shiv.js')
   body
     #img-logos
       img#logo-vroom(src='assets/logoVroom.png')
@@ -33,19 +31,19 @@ html(lang='en')
     .reveal
       // Any section element inside of this container is displayed as a slide
       .slides
-        include sections/_1-intro
+        include sections/1-intro
 
-        include sections/_2-scaffolding
+        include sections/2-scaffolding
 
-        include sections/_3-architettura
+        include sections/3-architettura
 
-        include sections/_4-templates
+        include sections/4-templates
 
-        include sections/_5-tips
+        include sections/5-tips
 
-        include sections/_9-end
-    script(src='lib/js/head.min.js')
-    script(src='js/reveal.js')
+        include sections/9-end
+    script(src='node_modules/reveal.js/lib/js/head.min.js')
+    script(src='node_modules/reveal.js/js/reveal.js')
     script.
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
@@ -59,11 +57,11 @@ html(lang='en')
       transitionSpeed: 'fast',
       // Optional reveal.js plugins
       dependencies: [
-      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-      { src: 'plugin/zoom-js/zoom.js', async: true },
-      { src: 'plugin/notes/notes.js', async: true }
+      { src: 'node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'node_modules/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'node_modules/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: 'node_modules/reveal.js/plugin/notes/notes.js', async: true }
       ]
       });
