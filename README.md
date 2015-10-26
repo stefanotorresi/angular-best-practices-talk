@@ -1,6 +1,6 @@
 # Angular Best Practices Talk
 
-This repo hold a slide presentation about AngularJS best practices
+This repo holds a slide presentation about AngularJS best practices
 
 ## Browse
 
