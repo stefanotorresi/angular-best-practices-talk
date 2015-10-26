@@ -21,7 +21,7 @@ gulp.task('clean', function (cb) {
 
 gulp.task('jade', function() {
     log('Building HTML from Jade sources...');
-    return gulp.src([].concat(srcFiles.jade, '!*/sections/**/*.*'))
+    return gulp.src([].concat(srcFiles.jade, '!**/_*.*', '!*/sections/**/*.*'))
         .pipe(plugins.jade())
         .on('error', handleError)
         .pipe(gulp.dest(paths.dist))
