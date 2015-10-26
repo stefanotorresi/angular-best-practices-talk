@@ -4,7 +4,7 @@ This repo hold a slide presentation about AngularJS best practices
 
 ## Browse
 
-You can see the slides at [vroom.agency/talks/angular-best-practices](http://vroom.agency/talks/angular-best-practices) 
+You can browse the presentation at [vroom.agency/talks/angular-best-practices](http://vroom.agency/talks/angular-best-practices) 
 
 ## Install
 
