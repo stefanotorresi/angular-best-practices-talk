@@ -1,10 +1,12 @@
 # Angular Best Practices Talk
 
-This repo holds a slide presentation about AngularJS best practices
+This repo holds a slide presentation about AngularJS best practices.
+
+**Note: the presentation itself is in Italian language.**
 
 ## Browse
 
-You can browse the presentation at [vroom.agency/talks/angular-best-practices](http://vroom.agency/talks/angular-best-practices) 
+You can browse the presentation at [vroom.agency/talks/angular-best-practices](http://vroom.agency/talks/angular-best-practices). 
 
 ## Install
 
@@ -19,4 +21,4 @@ $: npm run build
 $: npm start
 ```
 
-`gulp` will watch for changes and `http-server` will serve at `http://localhost:8000`
+`gulp` will watch for changes and `http-server` will serve at `http://localhost:8000`.
